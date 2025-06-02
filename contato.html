@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Studio PP Barbearia</title>
+    <link rel="icon" href="/images/logo 02.jpeg" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="">
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="galeria.html">Galeria</a></li>
+                    <li><a href="contato.html" class="active">Contato</a></li>
+                    <li><a href="localizacao.html">Localização</a></li>
+                    <li><a href="cadastro.html" class="btn-cadastro">Cadastre-se</a></li>
+                </ul>
+                <div class="menu-mobile">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="banner-content">
+            <h2>ENTRE EM CONTATO</h2>
+            <p>Estamos prontos para atender você</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="section-title">INFORMAÇÕES DE CONTATO</h2>
+                    <p>Entre em contato conosco para agendar um horário, tirar dúvidas ou enviar sugestões. Nossa equipe está pronta para atendê-lo.</p>
+                    
+                    <div class="info-items">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Endereço</h3>
+                                <p>Avenida Saul Elkind 4054, Loja 3 Supermercado Santarém Parigot</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Telefone</h3>
+                                <p>(43) 3026-1422</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>E-mail</h3>
+                                <p>sppbarbearia@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Horário de Funcionamento</h3>
+                                <p>De Segunda a Sexta-feira das 08h às as 20h</p>
+                                <p>Sábados das 08h às 19h</p>
+                                <p>Domingos e Feriados das 08h às 12h.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-contact">
+                        <h3>Redes Sociais</h3>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/studioppbarbearia" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com/studioppbarbearia" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                            <a href="https://wa.me/554330261422" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <h2 class="section-title">ENVIE SUA MENSAGEM</h2>
+                    <form class="contact-form" id="contactForm" onsubmit="return sendToWhatsApp(event)">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Assunto</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Selecione o assunto</option>
+                                <option value="Agendamento">Agendamento</option>
+                                <option value="Informações">Informações</option>
+                                <option value="Sugestões">Sugestões</option>
+                                <option value="Reclamações">Reclamações</option>
+                                <option value="Proposta de Parceria">Proposta de Parceria</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <div class="form-group form-checkbox">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Desejo receber novidades e promoções por e-mail</label>
+                        </div>
+                        <div class="form-group form-checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">Concordo com os termos de uso e política de privacidade</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensagem via WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">PERGUNTAS FREQUENTES</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como posso agendar um horário?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Você pode agendar um horário através do nosso site na página de cadastro, pelo telefone (11) 99999-8888 ou diretamente em nossa barbearia. Recomendamos o agendamento prévio para garantir disponibilidade.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Qual o tempo médio de cada serviço?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O tempo varia de acordo com o serviço escolhido. Cortes simples levam em média 30-40 minutos, enquanto serviços completos como corte + barba podem levar até 90 minutos. Na página de serviços você encontra o tempo estimado para cada procedimento.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Vocês aceitam pagamento com cartão?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, aceitamos diversas formas de pagamento: dinheiro, cartões de crédito e débito, PIX e transferência bancária. Também oferecemos a opção de pacotes com desconto para múltiplos serviços.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Preciso levar alguma referência de corte?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não é obrigatório, mas recomendamos trazer referências visuais do estilo desejado. Isso ajuda nossos profissionais a entenderem melhor suas expectativas. De qualquer forma, realizamos uma consulta prévia para entender o que você deseja.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Vocês atendem crianças?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, temos serviços específicos para crianças a partir de 5 anos de idade. Nossos profissionais são treinados para proporcionar uma experiência tranquila e agradável para os pequenos.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como funciona o programa de fidelidade?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ao se cadastrar em nosso sistema, você automaticamente participa do programa de fidelidade. A cada serviço realizado, você acumula pontos que podem ser trocados por descontos ou serviços gratuitos. Além disso, oferecemos promoções especiais para aniversariantes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>PRONTO PARA TRANSFORMAR SEU VISUAL?</h2>
+                <p>Cadastre-se agora e ganhe desconto no primeiro atendimento</p>
+                <a href="cadastro.html" class="btn btn-primary">Cadastrar Agora</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="/images/logo 02.jpeg" alt="">
+                    </div>
+                    <p>Transformando estilos e elevando a autoestima desde 2022.</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/studioppbarbearia"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/studioppbarbearia"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="galeria.html">Galeria</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="localizacao.html">Localização</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Avenida Saul Elkind 4054, Loja 3 Supermercado Santarém Parigot</li>
+                        <li><i class="fas fa-phone"></i> +55 43 3026-1422</li>
+                        <li><i class="fas fa-envelope"></i> sppbarbearia@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> De Segunda a Sexta-feira das 08h às as 20h, e aos Sábados das 08h às 19h. E aos Domingos e Feriados das 08h às 12h.</li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>cadastre-se</h3>
+                    <p>Inscreva-se para receber novidades e promoções exclusivas</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu melhor e-mail">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Studio PP Barbearia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            initFaqAccordion();
+            
+            // Máscara para o campo de telefone
+            const phoneInput = document.getElementById('phone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 0) {
+                        // Formato: (XX) XXXXX-XXXX
+                        if (value.length <= 2) {
+                            value = `(${value}`;
+                        } else if (value.length <= 7) {
+                            value = `(${value.substring(0, 2)}) ${value.substring(2)}`;
+                        } else if (value.length <= 11) {
+                            value = `(${value.substring(0, 2)}) ${value.substring(2, 7)}-${value.substring(7)}`;
+                        } else {
+                            value = `(${value.substring(0, 2)}) ${value.substring(2, 7)}-${value.substring(7, 11)}`;
+                        }
+                    }
+                    e.target.value = value;
+                });
+            }
+        });
+
+        // Função para enviar dados para o WhatsApp
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            // Obter valores dos campos
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const newsletter = document.getElementById('newsletter').checked ? 'Sim' : 'Não';
+            
+            // Validar campos obrigatórios
+            if (!name || !email || !phone || !subject || !message) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return false;
+            }
+            
+            // Formatar a mensagem para o WhatsApp
+            let whatsappMessage = 
+                `*Contato via Site - Studio PP Barbearia*\n\n` +
+                `*Nome:* ${name}\n` +
+                `*E-mail:* ${email}\n` +
+                `*Telefone:* ${phone}\n` +
+                `*Assunto:* ${subject}\n\n` +
+                `*Mensagem:*\n${message}\n\n` +
+                `*Deseja receber novidades:* ${newsletter}`;
+            
+            // Codificar a mensagem para URL
+            whatsappMessage = encodeURIComponent(whatsappMessage);
+            
+            // Número do WhatsApp (formato: código do país + número sem formatação)
+            const whatsappNumber = '554330261422';
+            
+            // Criar o link do WhatsApp
+            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+            
+            // Abrir o WhatsApp em uma nova janela/aba
+            window.open(whatsappLink, '_blank');
+            
+            // Limpar o formulário após o envio
+            document.getElementById('contactForm').reset();
+            
+            return false;
+        }
+        
+        // Função para inicializar o acordeão de FAQ
+        function initFaqAccordion() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const toggle = item.querySelector('.faq-toggle');
+                
+                question.addEventListener('click', () => {
+                    // Fechar todos os outros itens
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                            otherItem.querySelector('.faq-toggle i').className = 'fas fa-plus';
+                        }
+                    });
+                    
+                    // Alternar o item atual
+                    item.classList.toggle('active');
+                    
+                    if (item.classList.contains('active')) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        toggle.innerHTML = '<i class="fas fa-minus"></i>';
+                    } else {
+                        answer.style.maxHeight = null;
+                        toggle.innerHTML = '<i class="fas fa-plus"></i>';
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

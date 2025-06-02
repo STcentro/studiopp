@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria - Studio PP Barbearia</title>
+    <link rel="icon" href="/images/logo 02.jpeg" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+             <div class="logo">
+                <img src="images/logo.png" alt="">
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="galeria.html" class="active">Galeria</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="localizacao.html">Localização</a></li>
+                    <li><a href="cadastro.html" class="btn-cadastro">Cadastre-se</a></li>
+                </ul>
+                <div class="menu-mobile">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="banner-content">
+            <h2>NOSSA GALERIA</h2>
+            <p>Conheça nossos trabalhos e ambiente exclusivo</p>
+        </div>
+    </section>
+
+    <section class="gallery-intro">
+        <div class="container">
+            <h2 class="section-title">TRANSFORMAÇÕES REAIS</h2>
+            <p class="section-subtitle">Confira alguns dos nossos melhores trabalhos e inspire-se para sua próxima transformação na Studio PP.</p>
+            
+            <div class="gallery-categories">
+                <div class="category-tab active" data-category="todos">Todos</div>
+                <div class="category-tab" data-category="cortes">Cortes</div>
+                <div class="category-tab" data-category="barbas">Barbas</div>
+                <div class="category-tab" data-category="ambiente">Ambiente</div>
+            </div>
+        </div>
+    </section>
+
+   <!-- <section class="gallery-grid">
+        <div class="container">
+            <div class="gallery-container">
+                -- Cortes --
+                <div class="gallery-item" data-category="cortes">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Corte Degradê Moderno</h3>
+                            <p>Barbeiro: Paulo Pereira</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="cortes">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Corte Clássico Executivo</h3>
+                            <p>Barbeiro: Ricardo Alves</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="cortes">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Corte Texturizado</h3>
+                            <p>Barbeiro: André Santos</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="cortes">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Corte Moderno com Franja</h3>
+                            <p>Barbeiro: Carlos Mendes</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="cortes">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Corte Militar Estilizado</h3>
+                            <p>Barbeiro: Paulo Pereira</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="cortes">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Corte Pompadour</h3>
+                            <p>Barbeiro: Ricardo Alves</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                -- Barbas --
+                <div class="gallery-item" data-category="barbas">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Barba Completa Modelada</h3>
+                            <p>Barbeiro: Carlos Mendes</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="barbas">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Barba Curta Estilizada</h3>
+                            <p>Barbeiro: Paulo Pereira</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="barbas">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Barba Longa com Degradê</h3>
+                            <p>Barbeiro: André Santos</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="barbas">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Barba e Bigode Estilizados</h3>
+                            <p>Barbeiro: Ricardo Alves</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="barbas">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Barba Desenhada</h3>
+                            <p>Barbeiro: Carlos Mendes</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="barbas">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Barba Executiva</h3>
+                            <p>Barbeiro: Paulo Pereira</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                -- Ambiente --
+                <div class="gallery-item" data-category="ambiente">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Recepção Sudeo PP</h3>
+                            <p>Ambiente exclusivo</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ambiente">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Área de Espera</h3>
+                            <p>Conforto e estilo</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ambiente">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Estações de Trabalho</h3>
+                            <p>Equipamentos modernos</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ambiente">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Área de Relaxamento</h3>
+                            <p>Experiência completa</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ambiente">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Bar da Barbearia</h3>
+                            <p>Drinks exclusivos</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ambiente">
+                    <div class="gallery-image"></div>
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Fachada Sudeo PP</h3>
+                            <p>Design moderno</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <div class="gallery-modal">
+        <span class="modal-close"><i class="fas fa-times"></i></span>
+        <div class="modal-content">
+            <img src="" alt="Imagem ampliada">
+            <div class="modal-caption"></div>
+        </div>
+        <button class="modal-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="modal-next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <section class="instagram-feed">
+        <div class="container">
+            <h2 class="section-title">SIGA-NOS NO INSTAGRAM</h2>
+            <p class="section-subtitle">@studioppbarbearia</p>
+            <div class="instagram-grid">
+                <a href="#" class="instagram-item">
+                    <div class="instagram-image"></div>
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="#" class="instagram-item">
+                    <div class="instagram-image"></div>
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="#" class="instagram-item">
+                    <div class="instagram-image"></div>
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="#" class="instagram-item">
+                    <div class="instagram-image"></div>
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="#" class="instagram-item">
+                    <div class="instagram-image"></div>
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="#" class="instagram-item">
+                    <div class="instagram-image"></div>
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+            </div>
+            <a href="#" class="btn btn-secondary">Ver Mais no Instagram</a>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>PRONTO PARA TRANSFORMAR SEU VISUAL?</h2>
+                <p>Cadastre-se agora e ganhe desconto no primeiro atendimento</p>
+                <a href="cadastro.html" class="btn btn-primary">Cadastrar Agora</a>
+            </div>
+        </div>
+    </section>
+
+   <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="/images/logo 02.jpeg" alt="">
+                    </div>
+                    <p>Transformando estilos e elevando a autoestima desde 2022.</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/studioppbarbearia"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/studioppbarbearia"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="galeria.html">Galeria</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="localizacao.html">Localização</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Avenida Saul Elkind 4054, Loja 3 Supermercado Santarém Parigot</li>
+                        <li><i class="fas fa-phone"></i> +55 43 3026-1422</li>
+                        <li><i class="fas fa-envelope"></i> sppbarbearia@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> De Segunda a Sexta-feira das 08h às as 20h, e aos Sábados das 08h às 19h. E aos Domingos e Feriados das 08h às 12h.</li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>cadastre-se</h3>
+                    <p>Inscreva-se para receber novidades e promoções exclusivas</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu melhor e-mail">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Studio PP Barbearia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

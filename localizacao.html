@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localização - Studio PP Barbearia</title>
+    <link rel="icon" href="/images/logo 02.jpeg" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos adicionais para o mapa e rotas */
+        .map-container {
+            margin-bottom: 30px;
+        }
+        
+        .map-wrapper {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .google-map {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+        
+        .route-options {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: var(--light-color);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .route-options h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .transport-modes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .transport-mode {
+            padding: 8px 15px;
+            background-color: white;
+            border: 2px solid var(--secondary-color);
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .transport-mode:hover, .transport-mode.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .google-map {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="">
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="galeria.html">Galeria</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="localizacao.html" class="active">Localização</a></li>
+                    <li><a href="cadastro.html" class="btn-cadastro">Cadastre-se</a></li>
+                </ul>
+                <div class="menu-mobile">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="banner-content">
+            <h2>NOSSA LOCALIZAÇÃO</h2>
+            <p>Encontre a Studio PP Barbearia</p>
+        </div>
+    </section>
+
+    <section class="location-section">
+        <div class="container">
+            <div class="location-grid">
+                <div class="map-container">
+                    <h2 class="section-title">ONDE ESTAMOS</h2>
+                    <div class="map-wrapper">
+                        <!-- Mapa via iframe do Google Maps (não requer API key) -->
+                        <iframe 
+                            class="google-map" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3661.0387403340246!2d-51.17177242549933!3d-23.304452779483433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eb4385f8b3f1e9%3A0x2e2c2d7df7028e66!2sAv.%20Saul%20Elkind%2C%204054%20-%20Vivi%20Xavier%2C%20Londrina%20-%20PR%2C%2086082-000!5e0!3m2!1spt-BR!2sbr!4v1717368704483!5m2!1spt-BR!2sbr" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        
+                        <!-- Opções de rota -->
+                        <div class="route-options">
+                            <h3>Como chegar até nós</h3>
+                            <div class="transport-modes">
+                                <div class="transport-mode active" data-mode="driving" onclick="changeTransportMode(this)">
+                                    <i class="fas fa-car"></i> Carro
+                                </div>
+                                <div class="transport-mode" data-mode="transit" onclick="changeTransportMode(this)">
+                                    <i class="fas fa-bus"></i> Ônibus
+                                </div>
+                                <div class="transport-mode" data-mode="walking" onclick="changeTransportMode(this)">
+                                    <i class="fas fa-walking"></i> A pé
+                                </div>
+                                <div class="transport-mode" data-mode="bicycling" onclick="changeTransportMode(this)">
+                                    <i class="fas fa-bicycle"></i> Bicicleta
+                                </div>
+                            </div>
+                            <button id="getRouteBtn" class="btn btn-primary" onclick="getRoute()">
+                                <i class="fas fa-route"></i> Traçar Rota
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-info">
+                    <h2 class="section-title">INFORMAÇÕES DE LOCALIZAÇÃO</h2>
+                    <div class="address-details">
+                        <div class="address-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="address-content">
+                            <h3>Endereço</h3>
+                            <p>Avenida Saul Elkind 4054, Loja 3 Supermercado Santarém Parigot</p>
+                            <p>CEP: 86082-000</p>
+                            <p>Londrina - Parana</p>
+                        </div>
+                    </div>
+                    <div class="location-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-parking"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Estacionamento</h3>
+                                <p>Estacionamento para clientes</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bus"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Transporte Público</h3>
+                                <p>Próximo do terminal do Vivi Xavier</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-wheelchair"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Acessibilidade</h3>
+                                <p>Ambiente com acessibilidade para cadeirantes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="business-hours">
+                        <h3>Horário de Funcionamento</h3>
+                        <ul class="hours-list">
+                            <li>
+                                <span class="day">Segunda a Sexta</span>
+                                <span class="hours">08h às as 20h</span>
+                            </li>
+                            <li>
+                                <span class="day">Sábado</span>
+                                <span class="hours">08h às 19</span>
+                            </li>
+                            <li>
+                                <span class="day">Domingo</span>
+                                <span class="hours">08h às 12h</span>
+                            </li>
+                            <li>
+                                <span class="day">Feriados</span>
+                                <span class="hours">Consultar horário especial</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contact-buttons">
+                        <a href="https://wa.me/5543996430153" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+5543996430153" target="_blank" class="btn btn-call"><i class="fas fa-phone"></i> Ligar</a>
+                        <a href="#" id="directionsBtn" class="btn btn-directions" onclick="getRoute()"><i class="fas fa-directions"></i> Como Chegar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nearby-section">
+        <div class="container">
+            <h2 class="section-title">PONTOS DE REFERÊNCIA</h2>
+            <div class="nearby-grid">
+                <div class="nearby-item">
+                    <div class="nearby-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="nearby-content">
+                        <h3>Suoer mercado</h3>
+                        <p>A 1 metros da barbearia</p>
+                    </div>
+                </div>
+                <div class="nearby-item">
+                    <div class="nearby-icon">
+                        <i class="fas fa-subway"></i>
+                    </div>
+                    <div class="nearby-content">
+                        <h3>Terminal Vivi Xavier</h3>
+                        <p>A 10 metros da barbearia</p>
+                    </div>
+                </div>
+                <div class="nearby-item">
+                    <div class="nearby-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="nearby-content">
+                        <h3>Park de Alimentação</h3>
+                        <p>A 20 metros da barbearia</p>
+                    </div>
+                </div>
+                <div class="nearby-item">
+                    <div class="nearby-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="nearby-content">
+                        <h3>Loterica da Caixa</h3>
+                        <p>Ao lado da barbearia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>PRONTO PARA TRANSFORMAR SEU VISUAL?</h2>
+                <p>Cadastre-se agora e ganhe desconto no primeiro atendimento</p>
+                <a href="cadastro.html" class="btn btn-primary">Cadastrar Agora</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="/images/logo 02.jpeg" alt="">
+                    </div>
+                    <p>Transformando estilos e elevando a autoestima desde 2022.</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/studioppbarbearia"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/studioppbarbearia"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="galeria.html">Galeria</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="localizacao.html">Localização</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Avenida Saul Elkind 4054, Loja 3 Supermercado Santarém Parigot</li>
+                        <li><i class="fas fa-phone"></i> +55 43 3026-1422</li>
+                        <li><i class="fas fa-envelope"></i> sppbarbearia@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> De Segunda a Sexta-feira das 08h às as 20h, e aos Sábados das 08h às 19h. E aos Domingos e Feriados das 08h às 12h.</li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>cadastre-se</h3>
+                    <p>Inscreva-se para receber novidades e promoções exclusivas</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu melhor e-mail">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Studio PP Barbearia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Variável para armazenar o modo de transporte atual
+        let currentTransportMode = 'driving';
+        
+        // Endereço da barbearia
+        const barberShopAddress = "Av. Saul Elkind, 4054 - sala 3 - Vivi Xavier, Londrina - PR, 86082-000";
+        
+        // Função para mudar o modo de transporte
+        function changeTransportMode(element) {
+            // Remover classe ativa de todos os modos
+            document.querySelectorAll('.transport-mode').forEach(mode => {
+                mode.classList.remove('active');
+            });
+            
+            // Adicionar classe ativa ao modo selecionado
+            element.classList.add('active');
+            
+            // Atualizar modo de transporte atual
+            currentTransportMode = element.getAttribute('data-mode');
+        }
+        
+        // Função para obter e exibir rota
+        function getRoute() {
+            // Verificar se o navegador suporta geolocalização
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    // Sucesso ao obter localização
+                    function(position) {
+                        const userLat = position.coords.latitude;
+                        const userLng = position.coords.longitude;
+                        
+                        // Abrir Google Maps com rota
+                        const googleMapsUrl = `https://www.google.com/maps/dir/${userLat},${userLng}/${encodeURIComponent(barberShopAddress)}/@${userLat},${userLng},13z/data=!4m2!4m1!3e${getTransportModeCode()}`;
+                        window.open(googleMapsUrl, '_blank');
+                    },
+                    // Erro ao obter localização
+                    function(error) {
+                        console.error("Erro ao obter localização: ", error);
+                        alert("Não foi possível obter sua localização atual. Abrindo o Google Maps sem ponto de partida.");
+                        
+                        // Abrir Google Maps sem localização atual
+                        openGoogleMapsDirections();
+                    }
+                );
+            } else {
+                // Navegador não suporta geolocalização
+                alert("Seu navegador não suporta geolocalização. Redirecionando para o Google Maps.");
+                openGoogleMapsDirections();
+            }
+        }
+        
+        // Função para obter código do modo de transporte para URL do Google Maps
+        function getTransportModeCode() {
+            switch(currentTransportMode) {
+                case 'driving': return '0';
+                case 'transit': return '3';
+                case 'walking': return '2';
+                case 'bicycling': return '1';
+                default: return '0';
+            }
+        }
+        
+        // Abrir Google Maps em nova aba (fallback)
+        function openGoogleMapsDirections() {
+            const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(barberShopAddress)}&travelmode=${currentTransportMode}`;
+            window.open(googleMapsUrl, '_blank');
+        }
+        
+        // Configurar botão de direções
+        document.addEventListener('DOMContentLoaded', function() {
+            const directionsBtn = document.getElementById('directionsBtn');
+            if (directionsBtn) {
+                directionsBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    getRoute();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
